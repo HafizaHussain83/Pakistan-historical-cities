@@ -1,38 +1,17 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { CitiesDataMultan } from '../constants'; // Ensure the path is correct
+import {CitiesDataBahawalpur,CitiesDataHyedrbad,CitiesDataKarachi,CitiesDataLahore,CitiesDataMultan,} from '../constants'; // Adjust path if needed
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export default function MultanDestinationDestination() {
-  const navigation = useNavigation();
-
-  return (
-    <View style={styles.container}>
-      {CitiesDataMultan.map((item, index) => {
-        if (index % 2 === 0) {
-          return (
-            <View style={styles.row} key={index}>
-              <DestinationCard navigation={navigation} item={item} />
-              {index + 1 < CitiesDataMultan.length && (
-                <DestinationCard navigation={navigation} item={CitiesDataMultan[index + 1]} />
-              )}
-            </View>
-          );
-        }
-      })}
-    </View>
-  );
-}
-
-export const DestinationCard = ({ navigation, item }) => {
+const DestinationCard = ({ navigation, item }) => {
   const [isFavourite, toggleFavourite] = useState(false);
 
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Destination', { ...item }); // Ensure 'Destination' screen is registered
+        navigation.navigate('Destination', { ...item }); // Make sure Destination screen is registered
       }}
       style={styles.destinationCard}
     >
@@ -47,6 +26,47 @@ export const DestinationCard = ({ navigation, item }) => {
     </TouchableOpacity>
   );
 };
+
+function renderDestinations(data) {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      {data.map((item, index) => {
+        if (index % 2 === 0) {
+          return (
+            <View style={styles.row} key={index}>
+              <DestinationCard navigation={navigation} item={item} />
+              {index + 1 < data.length && (
+                <DestinationCard navigation={navigation} item={data[index + 1]} />
+              )}
+            </View>
+          );
+        }
+      })}
+    </View>
+  );
+}
+
+export function BahawalpurDestination() {
+  return renderDestinations(CitiesDataBahawalpur);
+}
+
+export function HydDestination() {
+  return renderDestinations(CitiesDataHyedrbad);
+}
+
+export function KarachiDestination() {
+  return renderDestinations(CitiesDataKarachi);
+}
+
+export function LahoreDestination() {
+  return renderDestinations(CitiesDataLahore);
+}
+
+export function MultanDestination() {
+  return renderDestinations(CitiesDataMultan);
+}
 
 const styles = StyleSheet.create({
   container: {

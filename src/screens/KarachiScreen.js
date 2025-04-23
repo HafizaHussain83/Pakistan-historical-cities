@@ -1,39 +1,55 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { CitiesDataKarachi } from '../constants'; // Make sure the path is correct
-import KarachiDestination from '../components/KarachiDestination';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import { KarachiDestination } from '../components/CityDestination'; // ✅ Corrected named import
 import Catagories from '../components/Catagories';
-
 
 export default function KarachiScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingVertical: 50 }} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={{ paddingVertical: 50 }}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
-          <Image source={require("../../assets/images/karachi.jpeg")} style={styles.cityImage} />
+          <Image
+            source={require('../../assets/images/karachi.jpeg')}
+            style={styles.cityImage}
+          />
           <Text style={styles.cityName}>Karachi</Text>
         </View>
 
         <View style={styles.details}>
-          <Text style={styles.description}>Detailed description about Karachi...</Text>
+          <Text style={styles.description}>
+            Detailed description about Karachi...
+          </Text>
         </View>
 
-                {/* Catagories */}
-                <View  style={styles.catagories} >
-                            <Catagories />
-                            </View>
+        {/* Categories */}
+        <View style={styles.categories}>
+          <Catagories />
+        </View>
 
-                        <View style={styles.destination}>
-                        <KarachiDestination />
-
-                       </View>
+        {/* Destinations */}
+        <View style={styles.destination}>
+          <KarachiDestination />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -63,9 +79,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingHorizontal: 20,
   },
-  destination:{
-   
-    paddingHorizontal:15,   
-  }
- 
+  destination: {
+    paddingHorizontal: 15,
+  },
 });

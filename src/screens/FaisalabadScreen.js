@@ -1,18 +1,48 @@
-// FaisalabadScreen.js
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import Catagories from '../components/Catagories';
+import { FaisalabadDestination } from '../components/CityDestination'; // Optional: Create this if needed
 
 export default function FaisalabadScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingVertical: 50 }} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={{ paddingVertical: 50 }}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
-          <Image source={require('../../assets/images/faisalabad.jpeg')} style={styles.cityImage} />
+          <Image
+            source={require('../../assets/images/faisalabad.jpeg')}
+            style={styles.cityImage}
+          />
           <Text style={styles.cityName}>Faisalabad</Text>
         </View>
+
         <View style={styles.details}>
-          <Text style={styles.description}>Detailed description about Faisalabad...</Text>
+          <Text style={styles.description}>
+            Detailed description about Faisalabad...
+          </Text>
+        </View>
+
+        {/* Categories */}
+        <View style={styles.categories}>
+          <Catagories />
+        </View>
+
+        {/* Destinations */}
+        <View style={styles.destination}>
+          <FaisalabadDestination /> {/* If not created yet, comment this out for now */}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -37,9 +67,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
-  details: {},
+  details: {
+    paddingHorizontal: 20,
+    marginVertical: 10,
+  },
   description: {
     fontSize: wp(4),
     color: '#333',
+  },
+  categories: {
+    marginVertical: 20,
+    paddingHorizontal: 20,
+  },
+  destination: {
+    paddingHorizontal: 15,
   },
 });

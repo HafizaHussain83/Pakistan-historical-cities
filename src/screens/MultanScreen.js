@@ -1,17 +1,15 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { CitiesDataMultan } from '../constants'; // Make sure the path is correct
-import MultanDestination from '../components/MultanDestination';
 import Catagories from '../components/Catagories';
-
+import { MultanDestination } from '../components/CityDestination'; // Assuming it's a named export
 
 export default function MultanScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ paddingVertical: 50 }} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <Image source={require("../../assets/images/multan.jpeg")} style={styles.cityImage} />
+          <Image source={require('../../assets/images/multan.jpeg')} style={styles.cityImage} />
           <Text style={styles.cityName}>Multan</Text>
         </View>
 
@@ -19,21 +17,21 @@ export default function MultanScreen() {
           <Text style={styles.description}>Detailed description about Multan...</Text>
         </View>
 
-                {/* Catagories */}
-                <View  style={styles.catagories} >
-                            <Catagories />
-                            </View>
+        {/* Categories */}
+        <View style={styles.categories}>
+          <Catagories />
+        </View>
 
-                        <View style={styles.destination}>
-                        <MultanDestination />
-
-                       </View>
+        {/* Destinations */}
+        <View style={styles.destination}>
+          <MultanDestination />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -63,9 +61,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingHorizontal: 20,
   },
-  destination:{
-   
-    paddingHorizontal:15,   
-  }
- 
+  destination: {
+    paddingHorizontal: 15,
+  },
 });

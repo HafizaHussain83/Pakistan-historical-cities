@@ -1,39 +1,54 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { CitiesDataBahawalpur } from '../constants'; // Make sure the path is correct
-import BahwalpurDestination from '../components/BahwalpurDestination';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import { BahawalpurDestination } from '../components/CityDestination'; // ✅ Corrected import
 import Catagories from '../components/Catagories';
-
 
 export default function BahawalpurScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingVertical: 50 }} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={{ paddingVertical: 50 }}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
-          <Image source={require("../../assets/images/bahawalpur.jpeg")} style={styles.cityImage} />
-          <Text style={styles.cityName}>Bhawalpur</Text>
+          <Image
+            source={require('../../assets/images/bahawalpur.jpeg')}
+            style={styles.cityImage}
+          />
+          <Text style={styles.cityName}>Bahawalpur</Text>
         </View>
 
         <View style={styles.details}>
-          <Text style={styles.description}>Detailed description about Bhawalpur...</Text>
+          <Text style={styles.description}>
+            Detailed description about Bahawalpur...
+          </Text>
         </View>
 
-                {/* Catagories */}
-                <View  style={styles.catagories} >
-                            <Catagories />
-                            </View>
+        {/* Categories */}
+        <View style={styles.categories}>
+          <Catagories />
+        </View>
 
-                        <View style={styles.destination}>
-                        <BahwalpurDestination />
-
-                       </View>
+        <View style={styles.destination}>
+          <BahawalpurDestination />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -63,9 +78,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingHorizontal: 20,
   },
-  destination:{
-   
-    paddingHorizontal:15,   
-  }
- 
+  destination: {
+    paddingHorizontal: 15,
+  },
 });
