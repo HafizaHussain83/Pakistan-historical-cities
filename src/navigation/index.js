@@ -28,7 +28,7 @@ export default function AppNavigation() {
         <Stack.Screen name="KarachiScreen" component={KarachiScreen} />
         <Stack.Screen name="LahoreScreen" component={LahoreScreen} />
         <Stack.Screen name="FaisalabadScreen" component={FaisalabadScreen} />
-        <Stack.Screen name="CityDetails" component={CityDetailsScreen} />
+       
         <Stack.Screen name="BahawalpurScreen" component={BahawalpurScreen} />
         <Stack.Screen name="MultanScreen" component={MultanScreen} />
         <Stack.Screen name="RawalpindiScreen" component={RawalpindiScreen} />
